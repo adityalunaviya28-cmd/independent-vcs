@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Independent VCs — One Pager</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #E85D04;
+    --dark: #111111;
+    --mid: #444;
+    --light: #888;
+    --bg: #FFFFFF;
+    --rule: #E0E0E0;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 64px 56px 72px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1.5px solid var(--dark);
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+  }
+
+  .logo-block { display: flex; flex-direction: column; gap: 4px; }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: var(--dark);
+  }
+
+  .logo span { color: var(--orange); }
+
+  .tagline {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-top: 6px;
+  }
+
+  .header-meta {
+    text-align: right;
+    font-size: 11px;
+    color: var(--light);
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+    padding-top: 4px;
+  }
+
+  /* ── HERO STATEMENT ── */
+  .hero {
+    margin-bottom: 40px;
+  }
+
+  .hero-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+
+  .hero-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--dark);
+    max-width: 680px;
+  }
+
+  .hero-text em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  /* ── TWO-COL GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1.5px solid var(--dark);
+    margin-bottom: 36px;
+  }
+
+  .grid-cell {
+    padding: 28px 26px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .grid-cell:nth-child(even) { border-right: none; }
+  .grid-cell:nth-last-child(-n+2) { border-bottom: none; }
+
+  .cell-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+
+  .cell-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--dark);
+  }
+
+  .cell-body {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--mid);
+    font-weight: 300;
+  }
+
+  .cell-body strong {
+    color: var(--orange);
+    font-weight: 500;
+  }
+
+  /* ── WHAT WE DO ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+
+  .activities {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+
+  .pill {
+    font-size: 12px;
+    font-weight: 400;
+    border: 1px solid var(--dark);
+    padding: 7px 16px;
+    letter-spacing: 0.3px;
+    color: var(--dark);
+  }
+
+  .pill.orange {
+    background: var(--orange);
+    color: #fff;
+    border-color: var(--orange);
+    font-weight: 500;
+  }
+
+  /* ── MODEL ── */
+  .model-row {
+    display: flex;
+    gap: 0;
+    border: 1.5px solid var(--dark);
+    margin-bottom: 36px;
+  }
+
+  .model-item {
+    flex: 1;
+    padding: 22px 22px;
+    border-right: 1px solid var(--rule);
+    text-align: center;
+  }
+
+  .model-item:last-child { border-right: none; }
+
+  .model-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .model-desc {
+    font-size: 11.5px;
+    color: var(--mid);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* ── JOIN ── */
+  .join-bar {
+    background: var(--dark);
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+
+  .join-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.35;
+    max-width: 440px;
+  }
+
+  .join-text span { color: var(--orange); }
+
+  .join-cta {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    padding: 10px 20px;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .join-cta:hover {
+    background: var(--orange);
+    color: #fff;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+  }
+
+  .footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.3px;
+  }
+
+  .footer-note {
+    font-size: 11px;
+    color: var(--light);
+    letter-spacing: 0.5px;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 40px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-block">
+      <div class="logo">Independent <span>VCs</span></div>
+      <div class="tagline">We are not just analysts — we are independent VCs.</div>
+    </div>
+    <div class="header-meta">
+      Early-Stage · India<br>
+      Open Initiative · 2025<br>
+      Free to Join
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">The Problem We're Solving</div>
+    <div class="hero-text">
+      Thousands of aspiring VCs are stuck at the gate — no MBA, no PE background, no metro address.
+      We believe the <em>best deal-finders</em> aren't always hired. So we're building our own table.
+    </div>
+  </div>
+
+  <!-- GRID: Problem / Solution / Who / Why -->
+  <div class="grid">
+    <div class="grid-cell">
+      <div class="cell-label">The Gap</div>
+      <div class="cell-title">VC hiring is gated</div>
+      <div class="cell-body">
+        Most VC roles go to MBA grads, ex-PE/consulting professionals in metro cities. Talent from tier-2 cities with <strong>non-traditional backgrounds</strong> rarely gets a shot — not because they lack ability, but because they lack access.
+      </div>
+    </div>
+    <div class="grid-cell">
+      <div class="cell-label">Our Answer</div>
+      <div class="cell-title">Stop waiting. Start doing.</div>
+      <div class="cell-body">
+        Instead of competing for a seat, we build our own practice. Each member <strong>sources real deals, builds real theses</strong>, and talks to real founders — the exact work a VC analyst does on day one.
+      </div>
+    </div>
+    <div class="grid-cell">
+      <div class="cell-label">Who This Is For</div>
+      <div class="cell-title">Early-career, non-traditional</div>
+      <div class="cell-body">
+        No MBA. No IIT. No Bengaluru address. Just <strong>genuine curiosity</strong> about startups, hunger to learn, and willingness to roll up your sleeves and build something from scratch — together.
+      </div>
+    </div>
+    <div class="grid-cell">
+      <div class="cell-label">The Real Goal</div>
+      <div class="cell-title">Network is deal-flow</div>
+      <div class="cell-body">
+        In VC, <strong>networking is everything.</strong> Every conversation with a founder, every thesis document, every memo co-built here becomes a living portfolio — and a pipeline. Deal-flow is the by-product of genuine relationships.
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <div class="section-label">What We Co-Build Together</div>
+  <div class="activities">
+    <span class="pill orange">Sector Thesis</span>
+    <span class="pill">Investment Memos</span>
+    <span class="pill">Deal-Flow Funnels</span>
+    <span class="pill">Founder Conversations</span>
+    <span class="pill orange">VC-Ready Pitch Decks</span>
+    <span class="pill">Financial Modelling</span>
+    <span class="pill">Fundraising Storytelling</span>
+    <span class="pill">Market Landscaping</span>
+    <span class="pill orange">Startup Scouting</span>
+    <span class="pill">Peer Review & Critique</span>
+  </div>
+
+  <!-- MODEL -->
+  <div class="section-label">How It Works</div>
+  <div class="model-row">
+    <div class="model-item">
+      <div class="model-num">01</div>
+      <div class="model-desc">You pick your sector. You own your thesis. No one takes it from you.</div>
+    </div>
+    <div class="model-item">
+      <div class="model-num">02</div>
+      <div class="model-desc">We co-build documents, challenge assumptions, stress-test ideas — together.</div>
+    </div>
+    <div class="model-item">
+      <div class="model-num">03</div>
+      <div class="model-desc">You source founders. You have the conversations. You build the pipeline.</div>
+    </div>
+    <div class="model-item">
+      <div class="model-num">04</div>
+      <div class="model-desc">Everything is free today. If a business model emerges, we build that too.</div>
+    </div>
+  </div>
+
+  <!-- JOIN BAR -->
+  <div class="join-bar">
+    <div class="join-text">
+      If you've spent months applying for VC jobs and found the gap — <span>you already belong here.</span>
+      Bring your idea. Bring your frustration. Let's turn it into a body of work.
+    </div>
+    <a class="join-cta" href="https://tally.so/r/b5lVN7" target="_blank" rel="noopener noreferrer">Join the Initiative →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-tagline">"We are not just analysts — we are Independent VCs."</div>
+    <div class="footer-note">Open · Collaborative · India-First</div>
+  </div>
+
+</div>
+</body>
+</html>
